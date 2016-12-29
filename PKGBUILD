@@ -1,5 +1,5 @@
 pkgname=qt5-quick1
-pkgver=5.7.0
+pkgver=5.7.1
 pkgrel=1
 arch=('x86_64')
 url='http://qt-project.org/'
@@ -40,8 +40,8 @@ package() {
   _prlfix
   # create some symlinks in /usr/bin, postfixed with -qt5
   install -d "${pkgdir}"/usr/bin
-  for i in $(ls ${pkgdir}/usr/lib/qt5/bin); do
-      ln -s /usr/lib/qt5/bin/${i} ${pkgdir}/usr/bin/${i}-qt5
+  for i in $(ls ${pkgdir}/usr/bin); do
+      ln -s /usr/bin/${i} ${pkgdir}/usr/bin/${i}-qt5
   done
   install -D -m644 ../LGPL_EXCEPTION.txt \
     "${pkgdir}"/usr/share/licenses/${pkgname}/LGPL_EXCEPTION.txt
